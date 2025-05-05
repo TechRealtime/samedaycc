@@ -13,11 +13,11 @@
             --primary-light: #a29bfe;
             --primary-dark: #5649c0;
             --success: #00b894;
-            --success-light: rgba(0, 184, 148, 0.1);
+            --success-bg: rgba(0, 184, 148, 0.2);
             --danger: #ff7675;
-            --danger-light: rgba(255, 118, 117, 0.1);
+            --danger-bg: rgba(255, 118, 117, 0.2);
             --warning: #fdcb6e;
-            --warning-light: rgba(253, 203, 110, 0.1);
+            --warning-bg: rgba(253, 203, 110, 0.2);
             --secondary: #636e72;
             --secondary-light: rgba(99, 110, 114, 0.1);
             --text-primary: #2d3436;
@@ -26,9 +26,8 @@
             --card-bg: #ffffff;
             --border-color: #dfe6e9;
             --footer-color: #b2bec3;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            --glow: 0 0 15px rgba(108, 92, 231, 0.3);
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            --transition: all 0.2s ease;
         }
 
         [data-theme="dark"] {
@@ -36,11 +35,11 @@
             --primary-light: #5a4ac5;
             --primary-dark: #9a86ff;
             --success: #039680;
-            --success-light: rgba(85, 239, 196, 0.15);
+            --success-bg: rgba(3, 150, 128, 0.2);
             --danger: #ff7675;
-            --danger-light: rgba(255, 118, 117, 0.15);
+            --danger-bg: rgba(255, 118, 117, 0.2);
             --warning: #faac05;
-            --warning-light: rgba(255, 234, 167, 0.15);
+            --warning-bg: rgba(250, 172, 5, 0.2);
             --secondary: #b2bec3;
             --secondary-light: rgba(178, 190, 195, 0.15);
             --text-primary: #f5f6fa;
@@ -49,8 +48,7 @@
             --card-bg: #1e1e1e;
             --border-color: #2d3436;
             --footer-color: #636e72;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            --glow: 0 0 15px rgba(125, 107, 255, 0.4);
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         * {
@@ -66,7 +64,6 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            transition: var(--transition);
             line-height: 1.6;
         }
 
@@ -86,7 +83,7 @@
         }
 
         .header h1 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 8px;
@@ -99,7 +96,7 @@
         .header p {
             color: var(--text-secondary);
             font-weight: 400;
-            font-size: 1rem;
+            font-size: 0.95rem;
             opacity: 0.9;
         }
 
@@ -125,18 +122,16 @@
         .theme-toggle:hover {
             background: var(--primary-light);
             color: white;
-            transform: rotate(30deg);
         }
 
         /* Tool Container */
         .tool-container {
             background: var(--card-bg);
-            border-radius: 16px;
+            border-radius: 12px;
             box-shadow: var(--shadow);
-            padding: 30px;
+            padding: 20px;
             margin-bottom: 30px;
             border: 1px solid var(--border-color);
-            transition: var(--transition);
         }
 
         /* Input Section */
@@ -144,46 +139,45 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .input-box {
             background: var(--card-bg);
-            border-radius: 14px;
-            padding: 20px;
+            border-radius: 10px;
+            padding: 15px;
             box-shadow: var(--shadow);
             border: 1px solid var(--border-color);
         }
 
         .input-box h3 {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             color: var(--primary);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         /* Paste Container */
         .paste-container {
             position: relative;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .paste-area {
             min-height: 120px;
             max-height: 200px;
             overflow-y: auto;
-            padding: 15px;
+            padding: 12px;
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 10px;
+            border-radius: 8px;
             color: var(--text-primary);
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             white-space: pre-wrap;
             word-break: break-word;
-            transition: var(--transition);
         }
 
         .paste-area:empty:before {
@@ -197,50 +191,48 @@
         .paste-area:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+            box-shadow: 0 0 0 2px rgba(108, 92, 231, 0.2);
         }
 
         .paste-icon {
             position: absolute;
-            bottom: 13px;
-            right: 13px;
+            bottom: 10px;
+            right: 10px;
             background: var(--primary);
             color: white;
-            padding: 15px 15px;
-            border-radius: 8px;
-            font-size: 0.9rem;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             transition: var(--transition);
         }
 
         .paste-icon:hover {
             background: var(--primary-dark);
-            transform: translateY(-2px);
         }
 
         /* Toolbar */
         .toolbar {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 8px;
+            margin-bottom: 12px;
         }
 
         .btn {
-            padding: 21px 18px;
+            padding: 12px 16px;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
+            gap: 6px;
+            font-size: 0.85rem;
             transition: var(--transition);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .btn-primary {
@@ -250,8 +242,6 @@
 
         .btn-primary:hover {
             background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
         }
 
         .btn-success {
@@ -261,8 +251,6 @@
 
         .btn-success:hover {
             background: #00a884;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
         }
 
         .btn-danger {
@@ -272,8 +260,6 @@
 
         .btn-danger:hover {
             background: #e66767;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 118, 117, 0.3);
         }
 
         .btn-warning {
@@ -283,8 +269,6 @@
 
         .btn-warning:hover {
             background: #fdcb6e;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.3);
         }
 
         .btn-secondary {
@@ -296,18 +280,17 @@
         .btn-secondary:hover {
             background: var(--secondary);
             color: white;
-            transform: translateY(-2px);
         }
 
         /* Counter Section */
         .counter {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            margin-bottom: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
             background: var(--card-bg);
-            border-radius: 14px;
-            padding: 20px;
+            border-radius: 10px;
+            padding: 15px;
             box-shadow: var(--shadow);
             border: 1px solid var(--border-color);
         }
@@ -316,9 +299,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 15px;
+            padding: 8px 12px;
             background: rgba(0, 0, 0, 0.03);
-            border-radius: 10px;
+            border-radius: 8px;
             border: 1px solid var(--border-color);
         }
 
@@ -329,19 +312,21 @@
         .counter-label {
             font-weight: 500;
             color: var(--text-secondary);
+            font-size: 0.85rem;
         }
 
         .counter-value {
             font-weight: 700;
             color: var(--text-primary);
+            font-size: 0.9rem;
         }
 
         /* Copy Status */
         .copy-status {
-            padding: 10px 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
             text-align: center;
             transition: var(--transition);
             opacity: 0;
@@ -350,55 +335,56 @@
         }
 
         .copy-status.copied {
-            background: var(--success-light);
+            background: var(--success-bg);
             color: var(--success);
             border: 1px solid var(--success);
             opacity: 1;
             height: auto;
-            padding: 10px 15px;
+            padding: 8px 12px;
         }
 
         .copy-status.error {
-            background: var(--danger-light);
+            background: var(--danger-bg);
             color: var(--danger);
             border: 1px solid var(--danger);
             opacity: 1;
             height: auto;
-            padding: 10px 15px;
+            padding: 8px 12px;
         }
 
         /* Output Section */
         .output-section {
             background: var(--card-bg);
-            border-radius: 14px;
-            padding: 20px;
+            border-radius: 10px;
+            padding: 15px;
             box-shadow: var(--shadow);
             border: 1px solid var(--border-color);
         }
 
         .output-section h3 {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             color: var(--primary);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         .output-toolbar {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 12px;
+            margin-bottom: 15px;
         }
 
         .filter-buttons {
             display: flex;
-            gap: 8px;
+            gap: 6px;
+            flex-wrap: wrap;
         }
 
         .filter-btn {
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
             font-weight: 500;
             cursor: pointer;
             transition: var(--transition);
@@ -420,7 +406,8 @@
 
         .copy-buttons {
             display: flex;
-            gap: 8px;
+            gap: 6px;
+            flex-wrap: wrap;
         }
 
         .btn-with-tick {
@@ -453,28 +440,42 @@
         #tableContainer {
             width: 100%;
             overflow-x: auto;
-            border-radius: 10px;
+            border-radius: 8px;
             border: 1px solid var(--border-color);
         }
 
         #dataTable {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         #dataTable th {
             background: var(--primary);
             color: white;
-            padding: 12px 15px;
+            padding: 10px 12px;
             text-align: left;
             font-weight: 600;
+            position: sticky;
+            top: 0;
         }
 
         #dataTable td {
-            padding: 10px 15px;
+            padding: 8px 12px;
             border-bottom: 1px solid var(--border-color);
             vertical-align: top;
+            position: relative;
+        }
+
+        /* Add column separators */
+        #dataTable td:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 4px;
+            bottom: 4px;
+            width: 1px;
+            background-color: var(--border-color);
         }
 
         #dataTable tr:last-child td {
@@ -490,27 +491,25 @@
         }
 
         .ours-status {
-            background-color: rgba(0, 184, 148, 0.1);
-            font-weight: 600;
+            color: var(--success);
+            font-weight: 700;
+            background-color: var(--success-bg);
         }
 
         .others-status {
-            background-color: rgba(255, 118, 117, 0.1);
-            font-weight: 600;
+            color: var(--danger);
+            font-weight: 700;
+            background-color: var(--danger-bg);
         }
 
         .invalid-status {
-            background-color: rgba(253, 203, 110, 0.1);
-            font-weight: 600;
+            color: var(--warning);
+            font-weight: 700;
+            background-color: var(--warning-bg);
         }
 
         .current-copy {
-            animation: highlightRow 1.5s ease;
-        }
-
-        @keyframes highlightRow {
-            0% { background: rgba(108, 92, 231, 0.1); }
-            100% { background: transparent; }
+            background-color: rgba(108, 92, 231, 0.1) !important;
         }
 
         /* Modal Styles */
@@ -525,33 +524,20 @@
             z-index: 2000;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur(5px);
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
 
         .modal-content {
             background: var(--card-bg);
-            border-radius: 16px;
+            border-radius: 12px;
             width: 90%;
             max-width: 500px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             border: 1px solid var(--border-color);
-            animation: slideUp 0.4s cubic-bezier(0.22, 1, 0.36, 1);
             overflow: hidden;
         }
 
-        @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
         .modal-header {
-            padding: 20px;
+            padding: 15px;
             border-bottom: 1px solid var(--border-color);
             display: flex;
             justify-content: space-between;
@@ -559,7 +545,7 @@
         }
 
         .modal-header h2 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--text-primary);
         }
 
@@ -572,21 +558,20 @@
 
         .close:hover {
             color: var(--danger);
-            transform: rotate(90deg);
         }
 
         .modal-body {
-            padding: 20px;
+            padding: 15px;
             max-height: 60vh;
             overflow-y: auto;
         }
 
         .modal-footer {
-            padding: 15px 20px;
+            padding: 12px 15px;
             border-top: 1px solid var(--border-color);
             display: flex;
             justify-content: flex-end;
-            gap: 10px;
+            gap: 8px;
         }
 
         /* Footer */
@@ -594,8 +579,8 @@
             text-align: center;
             margin-top: 20px;
             color: var(--footer-color);
-            font-size: 0.85rem;
-            padding: 20px 0;
+            font-size: 0.8rem;
+            padding: 15px 0;
         }
 
         /* Responsive Styles */
@@ -605,7 +590,7 @@
             }
             
             .tool-container {
-                padding: 20px;
+                padding: 15px;
             }
             
             .header h1 {
@@ -618,7 +603,7 @@
             
             .filter-buttons, .copy-buttons {
                 width: 100%;
-                flex-wrap: wrap;
+                justify-content: center;
             }
             
             .btn {
@@ -637,7 +622,7 @@
             }
             
             .tool-container {
-                padding: 15px;
+                padding: 12px;
             }
             
             .header h1 {
@@ -645,7 +630,7 @@
             }
             
             .input-box {
-                padding: 15px;
+                padding: 12px;
             }
             
             .counter {
@@ -674,7 +659,7 @@
     <div class="container">
         <div class="header">
             <h1><i class="fas fa-check-circle"></i> Same Day Zero Checker</h1>
-            <p>Check which agent call record was first and identify numbers as Ours or Others</p>
+           
         </div>
 
         <div class="tool-container">
@@ -695,13 +680,23 @@
                             <i class="fas fa-trash-alt"></i> Clear
                         </button>
                         <button class="btn btn-secondary" onclick="showEditOurIDsModal()">
-                            <i class="fas fa-edit"></i> Edit Our IDs
+                            <i class="fas fa-user-edit"></i> Edit Our IDs
                         </button>
                     </div>
                 </div>
             </div>
 
+            <div class="toolbar">
+                <button class="btn btn-success" onclick="showAddScrapModal()">
+                    <i class="fas fa-plus"></i> Add Scrap
+                </button>
+            </div>
+
             <div id="counter" class="counter">
+                <div class="counter-row">
+                    <span class="counter-label">Current Position:</span>
+                    <span class="counter-value" id="currentPosition">0</span>
+                </div>
                 <div class="counter-row">
                     <span class="counter-label">Total Numbers:</span>
                     <span class="counter-value" id="totalNumbers">0</span>
@@ -718,6 +713,10 @@
                     <span class="counter-label">Others:</span>
                     <span class="counter-value" id="othersNumbers">0</span>
                 </div>
+                <div class="counter-row">
+                    <span class="counter-label">Remaining:</span>
+                    <span class="counter-value" id="remainingNumbers">0</span>
+                </div>
             </div>
 
             <div class="copy-status" id="copyStatus">Ready</div>
@@ -727,17 +726,25 @@
                 <div class="output-toolbar">
                     <div class="filter-buttons">
                         <button class="filter-btn filter-all active" onclick="filterTable('all')">Show All</button>
-                        <button class="filter-btn filter-ours" onclick="filterTable('ours')">Show Ours Only</button>
-                        <button class="filter-btn filter-others" onclick="filterTable('others')">Show Others Only</button>
-                        <button class="filter-btn filter-invalid" onclick="filterTable('invalid')">Show Invalid Only</button>
+                        <button class="filter-btn filter-ours" onclick="filterTable('ours')">Show Ours</button>
+                        <button class="filter-btn filter-others" onclick="filterTable('others')">Show Others</button>
+                        <button class="filter-btn filter-invalid" onclick="filterTable('invalid')">Show Invalid</button>
                     </div>
                     <div class="copy-buttons">
                         <button class="btn btn-primary btn-with-tick" onclick="copyAllData()">
                             <i class="fas fa-copy"></i> Copy All
                             <span class="copy-tick"><i class="fas fa-check"></i></span>
                         </button>
-                        <button class="btn btn-success" onclick="exportToExcel()">
-                            <i class="fas fa-file-excel"></i> Export to Excel
+                        <button class="btn btn-success btn-with-tick" onclick="copyNextNumber()">
+                            <i class="fas fa-arrow-right"></i> Copy Next (#<span id="nextNumberIndex">0</span>)
+                            <span class="copy-tick"><i class="fas fa-check"></i></span>
+                        </button>
+                        <button class="btn btn-secondary btn-with-tick" onclick="copyPreviousNumber()">
+                            <i class="fas fa-arrow-left"></i> Copy Back
+                            <span class="copy-tick"><i class="fas fa-check"></i></span>
+                        </button>
+                        <button class="btn btn-warning" onclick="startOver()">
+                            <i class="fas fa-redo"></i> Start Over
                         </button>
                     </div>
                 </div>
@@ -745,20 +752,48 @@
                     <table id="dataTable">
                         <thead>
                             <tr>
-                                <th>Phone Number</th>
-                                <th>First Call Time</th>
-                                <th>Agent ID</th>
-                                <th>Status</th>
-                                <th>Remarks</th>
+                                <th>A (Phone)</th>
+                                <th>B</th>
+                                <th>C (Time)</th>
+                                <th>D (Agent)</th>
+                                <th>E</th>
+                                <th>F (Status)</th>
+                                <th>G (Remarks)</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-                            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-                            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Scrap Modal -->
+    <div id="addScrapModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Scrap Data</h2>
+                <span class="close" onclick="closeAddScrapModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="paste-container">
+                    <div class="paste-area" id="scrapDataArea" contenteditable="true" placeholder="Paste your scrap data here..."></div>
+                    <div class="paste-icon" onclick="pasteData('scrapDataArea')">
+                        <i class="fas fa-paste"></i> Paste
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeAddScrapModal()">
+                    <i class="fas fa-times"></i> Cancel
+                </button>
+                <button class="btn btn-primary" onclick="addScrapData()">
+                    <i class="fas fa-plus"></i> Add
+                </button>
             </div>
         </div>
     </div>
@@ -796,7 +831,9 @@
     <script>
         // Store processed data for later use
         let callRecords = [];
+        let scrapData = [];
         let ourAgentIDs = new Set();
+        let currentIndex = 0;
         let isDarkMode = false;
         let currentFilter = 'all';
 
@@ -818,6 +855,18 @@
                 if (e.ctrlKey && e.key === 'Enter') {
                     e.preventDefault();
                     processCallData();
+                }
+                
+                // Ctrl+ArrowRight for Copy Next
+                if (e.ctrlKey && e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    copyNextNumber();
+                }
+                
+                // Ctrl+ArrowLeft for Copy Previous
+                if (e.ctrlKey && e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    copyPreviousNumber();
                 }
             });
         });
@@ -844,6 +893,13 @@
             document.body.removeAttribute('data-theme');
             document.getElementById('themeToggle').innerHTML = '<i class="fas fa-moon"></i>';
             isDarkMode = false;
+        }
+
+        function startOver() {
+            currentIndex = 0;
+            updateCounter();
+            renderTable();
+            showCopyStatus('Reset to start position', true);
         }
 
         async function pasteData(areaId) {
@@ -935,6 +991,57 @@
             return time >= startTime && time <= endTime;
         }
 
+        function showAddScrapModal() {
+            document.getElementById('addScrapModal').style.display = 'flex';
+            document.getElementById('scrapDataArea').focus();
+        }
+
+        function closeAddScrapModal() {
+            document.getElementById('addScrapModal').style.display = 'none';
+        }
+
+        function addScrapData() {
+            const scrapDataText = document.getElementById('scrapDataArea').textContent.trim();
+            
+            if (!scrapDataText) {
+                showCopyStatus('Please paste scrap data before adding', false);
+                return;
+            }
+
+            // Parse scrap data (tab-separated columns)
+            const scrapRows = scrapDataText.split(/\r\n|\n|\r/).filter(row => row.trim() !== '');
+            
+            scrapData = scrapRows.map(row => {
+                const columns = row.split(/\t/);
+                let phoneNumber = columns[0] ? columns[0].trim() : '';
+                
+                return {
+                    columns: columns,
+                    number: phoneNumber,
+                    normalizedNumber: normalizePhoneNumber(phoneNumber),
+                    status: 'Pending',
+                    remarks: 'Not processed yet',
+                    isOurAgent: false,
+                    isValidTime: false
+                };
+            });
+
+            // Reset current index
+            currentIndex = 0;
+            
+            // Render the table
+            renderTable();
+            
+            // Update counter
+            updateCounter();
+            
+            // Close the modal and clear the textarea
+            closeAddScrapModal();
+            document.getElementById('scrapDataArea').textContent = '';
+            
+            showCopyStatus(`Added ${scrapData.length} numbers from scrap data`, true);
+        }
+
         function processCallData() {
             const callDataText = document.getElementById('callDataArea').textContent.trim();
             
@@ -945,6 +1052,11 @@
 
             if (ourAgentIDs.size === 0) {
                 showCopyStatus('Please add Our Agent IDs first', false);
+                return;
+            }
+
+            if (scrapData.length === 0) {
+                showCopyStatus('Please add scrap data first', false);
                 return;
             }
 
@@ -961,14 +1073,14 @@
                 const phoneNumber = normalizePhoneNumber(columns[0] || '');
                 if (!phoneNumber) return;
                 
-                // Extract call time (assuming it's in second column)
-                const callTimeStr = columns[1] || '';
+                // Extract call time (assuming it's in third column - column C)
+                const callTimeStr = columns[2] || '';
                 const callTime = parseTime(callTimeStr);
                 
-                // Extract agent ID (assuming it's in third column)
+                // Extract agent ID (assuming it's in fourth column)
                 let agentId = null;
-                if (columns.length >= 3) {
-                    const idMatch = columns[2].match(/\b\d+\b/);
+                if (columns.length >= 4) {
+                    const idMatch = columns[3].match(/\b\d+\b/);
                     if (idMatch) agentId = parseInt(idMatch[0]);
                 }
                 
@@ -986,56 +1098,60 @@
                 }
             });
             
-            // Convert to array and process each record
-            callRecords = Object.values(callsByNumber).map(record => {
-                const isOurAgent = record.agentId !== null && ourAgentIDs.has(record.agentId);
-                const isValidTime = isOurAgent ? isWithinHuntingTime(record.callTime) : true;
-                
-                let status, remarks;
-                
-                if (isOurAgent) {
-                    if (isValidTime) {
-                        status = 'Ours (Valid)';
-                        remarks = `Our agent ${record.agentId} called at ${record.callTimeStr}`;
+            // Process scrap data with call records
+            scrapData.forEach(item => {
+                const callRecord = callsByNumber[item.normalizedNumber];
+                if (callRecord) {
+                    const isOurAgent = callRecord.agentId !== null && ourAgentIDs.has(callRecord.agentId);
+                    const isValidTime = isOurAgent ? isWithinHuntingTime(callRecord.callTime) : true;
+                    
+                    if (isOurAgent) {
+                        if (isValidTime) {
+                            item.status = 'Ours (Valid)';
+                            item.remarks = `Our agent ${callRecord.agentId} called at ${callRecord.callTimeStr}`;
+                        } else {
+                            item.status = 'Ours (Invalid Time)';
+                            item.remarks = `Our agent ${callRecord.agentId} called outside hunting time (${callRecord.callTimeStr})`;
+                        }
                     } else {
-                        status = 'Ours (Invalid Time)';
-                        remarks = `Our agent ${record.agentId} called outside hunting time (${record.callTimeStr})`;
+                        item.status = 'Others';
+                        item.remarks = callRecord.agentId ? 
+                            `Other agent ${callRecord.agentId} called at ${callRecord.callTimeStr}` : 
+                            `Unknown agent called at ${callRecord.callTimeStr}`;
                     }
+                    
+                    item.isOurAgent = isOurAgent;
+                    item.isValidTime = isValidTime;
                 } else {
-                    status = 'Others';
-                    remarks = record.agentId ? 
-                        `Other agent ${record.agentId} called at ${record.callTimeStr}` : 
-                        `Unknown agent called at ${record.callTimeStr}`;
+                    item.status = 'Not Called';
+                    item.remarks = 'No call record found';
+                    item.isOurAgent = false;
+                    item.isValidTime = false;
                 }
-                
-                return {
-                    ...record,
-                    status: status,
-                    remarks: remarks,
-                    isOurAgent: isOurAgent,
-                    isValidTime: isValidTime
-                };
             });
             
+            // Reset current index
+            currentIndex = 0;
+            
             // Render the table
-            renderTable(callRecords);
+            renderTable();
             
             // Update counter
             updateCounter();
             
-            showCopyStatus(`Processed ${callRecords.length} unique phone numbers`, true);
+            showCopyStatus(`Processed ${Object.keys(callsByNumber).length} unique phone numbers`, true);
         }
 
-        function renderTable(data) {
+        function renderTable() {
             const table = document.getElementById('dataTable');
             const tbody = table.querySelector('tbody');
             tbody.innerHTML = '';
             
-            if (data.length === 0) {
+            if (scrapData.length === 0) {
                 // Add empty rows for better UI
                 for (let i = 0; i < 3; i++) {
                     const row = document.createElement('tr');
-                    for (let j = 0; j < 5; j++) {
+                    for (let j = 0; j < 7; j++) {
                         const td = document.createElement('td');
                         td.innerHTML = '&nbsp;';
                         row.appendChild(td);
@@ -1045,30 +1161,32 @@
                 return;
             }
             
-            data.forEach((item, index) => {
+            scrapData.forEach((item, index) => {
                 // Skip if filtered
                 if (currentFilter === 'ours' && !item.isOurAgent) return;
                 if (currentFilter === 'others' && item.isOurAgent) return;
                 if (currentFilter === 'invalid' && (item.isValidTime || !item.isOurAgent)) return;
                 
                 const row = document.createElement('tr');
+                if (index === currentIndex) {
+                    row.classList.add('current-copy');
+                }
                 
-                // Add phone number
-                const phoneCell = document.createElement('td');
-                phoneCell.textContent = item.phoneNumber || '';
-                row.appendChild(phoneCell);
+                // Add all columns from scrap data (A-E)
+                for (let i = 0; i < 5 && i < item.columns.length; i++) {
+                    const cell = document.createElement('td');
+                    cell.textContent = item.columns[i] || '';
+                    row.appendChild(cell);
+                }
                 
-                // Add call time
-                const timeCell = document.createElement('td');
-                timeCell.textContent = item.callTimeStr || '';
-                row.appendChild(timeCell);
+                // Add empty cells if there are fewer than 5 columns
+                for (let i = item.columns.length; i < 5; i++) {
+                    const cell = document.createElement('td');
+                    cell.innerHTML = '&nbsp;';
+                    row.appendChild(cell);
+                }
                 
-                // Add agent ID
-                const agentCell = document.createElement('td');
-                agentCell.textContent = item.agentId || '';
-                row.appendChild(agentCell);
-                
-                // Add status cell
+                // Add status cell (F)
                 const statusCell = document.createElement('td');
                 statusCell.textContent = item.status;
                 if (item.status === 'Ours (Valid)') {
@@ -1080,7 +1198,7 @@
                 }
                 row.appendChild(statusCell);
                 
-                // Add remarks cell
+                // Add remarks cell (G)
                 const remarksCell = document.createElement('td');
                 remarksCell.textContent = item.remarks;
                 row.appendChild(remarksCell);
@@ -1099,52 +1217,64 @@
             document.querySelector(`.filter-${filter}`).classList.add('active');
             
             // Re-render table
-            renderTable(callRecords);
+            renderTable();
         }
 
         function updateCounter() {
-            document.getElementById('totalNumbers').textContent = callRecords.length;
+            document.getElementById('currentPosition').textContent = currentIndex + 1;
+            document.getElementById('totalNumbers').textContent = scrapData.length;
             
-            const oursCount = callRecords.filter(item => item.isOurAgent && item.isValidTime).length;
-            const invalidOursCount = callRecords.filter(item => item.isOurAgent && !item.isValidTime).length;
-            const othersCount = callRecords.filter(item => !item.isOurAgent).length;
+            const oursCount = scrapData.filter(item => item.isOurAgent && item.isValidTime).length;
+            const invalidOursCount = scrapData.filter(item => item.isOurAgent && !item.isValidTime).length;
+            const othersCount = scrapData.filter(item => !item.isOurAgent).length;
+            const remainingCount = scrapData.length - currentIndex;
             
             document.getElementById('oursNumbers').textContent = oursCount;
             document.getElementById('invalidOursNumbers').textContent = invalidOursCount;
             document.getElementById('othersNumbers').textContent = othersCount;
+            document.getElementById('remainingNumbers').textContent = remainingCount;
+            
+            // Update next number index
+            document.getElementById('nextNumberIndex').textContent = currentIndex + 1;
         }
 
         function clearCallData() {
             document.getElementById('callDataArea').textContent = '';
             callRecords = [];
-            renderTable(callRecords);
+            scrapData = [];
+            renderTable();
             updateCounter();
         }
 
         function copyAllData() {
-            if (callRecords.length === 0) {
-                showCopyStatus('No data to copy. Please process call data first.', false);
+            if (scrapData.length === 0) {
+                showCopyStatus('No data to copy. Please add scrap data first.', false);
                 return;
             }
             
             // Filter data based on current filter
-            let filteredData = callRecords;
+            let filteredData = scrapData;
             if (currentFilter === 'ours') {
-                filteredData = callRecords.filter(item => item.isOurAgent);
+                filteredData = scrapData.filter(item => item.isOurAgent);
             } else if (currentFilter === 'others') {
-                filteredData = callRecords.filter(item => !item.isOurAgent);
+                filteredData = scrapData.filter(item => !item.isOurAgent);
             } else if (currentFilter === 'invalid') {
-                filteredData = callRecords.filter(item => item.isOurAgent && !item.isValidTime);
+                filteredData = scrapData.filter(item => item.isOurAgent && !item.isValidTime);
             }
             
             // Create CSV-like text with all columns
             const rows = filteredData.map(item => [
-                item.phoneNumber,
-                item.callTimeStr,
-                item.agentId || '',
+                ...item.columns.slice(0, 5),
                 item.status,
                 item.remarks
             ]);
+            
+            // Ensure we have 7 columns for each row
+            rows.forEach(row => {
+                while (row.length < 5) row.push('');
+                row.push(row[5] || ''); // Status
+                row.push(row[6] || ''); // Remarks
+            });
             
             const csvContent = rows.map(row => row.join('\t')).join('\n');
             
@@ -1161,48 +1291,72 @@
             });
         }
 
-        function exportToExcel() {
-            if (callRecords.length === 0) {
-                showCopyStatus('No data to export. Please process call data first.', false);
+        function copyNextNumber() {
+            if (scrapData.length === 0) {
+                showCopyStatus('No data to copy. Please add scrap data first.', false);
                 return;
             }
             
-            // Filter data based on current filter
-            let filteredData = callRecords;
-            if (currentFilter === 'ours') {
-                filteredData = callRecords.filter(item => item.isOurAgent);
-            } else if (currentFilter === 'others') {
-                filteredData = callRecords.filter(item => !item.isOurAgent);
-            } else if (currentFilter === 'invalid') {
-                filteredData = callRecords.filter(item => item.isOurAgent && !item.isValidTime);
+            if (currentIndex >= scrapData.length) {
+                currentIndex = 0; // Reset to start
             }
             
-            // Create CSV content
-            const headers = ['Phone Number', 'First Call Time', 'Agent ID', 'Status', 'Remarks'];
-            const rows = filteredData.map(item => [
-                item.phoneNumber,
-                item.callTimeStr,
-                item.agentId || '',
-                item.status,
-                item.remarks
-            ]);
+            const item = scrapData[currentIndex];
+            const numberToCopy = item.columns[0] || item.number || '';
             
-            const csvContent = [headers, ...rows].map(row => 
-                row.map(field => `"${field.toString().replace(/"/g, '""')}"`).join(',')
-            ).join('\n');
+            navigator.clipboard.writeText(numberToCopy).then(() => {
+                const tick = document.querySelectorAll('.btn-with-tick')[1].classList.add('active');
+                setTimeout(() => {
+                    document.querySelectorAll('.btn-with-tick')[1].classList.remove('active');
+                }, 2000);
+                
+                showCopyStatus(`Copied: ${numberToCopy} (${item.status})`, true);
+                
+                // Move to next number
+                currentIndex++;
+                
+                // Update counter
+                updateCounter();
+                
+                // Re-render table to show highlight
+                renderTable();
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                showCopyStatus('Failed to copy number. Please try again.', false);
+            });
+        }
+
+        function copyPreviousNumber() {
+            if (scrapData.length === 0) {
+                showCopyStatus('No data to copy. Please add scrap data first.', false);
+                return;
+            }
             
-            // Create download link
-            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-            const url = URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.setAttribute('href', url);
-            link.setAttribute('download', 'same_day_zero_checker.csv');
-            link.style.visibility = 'hidden';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            if (currentIndex <= 0) {
+                currentIndex = scrapData.length; // Start from end
+            }
             
-            showCopyStatus(`Exported ${filteredData.length} items to CSV file`, true);
+            currentIndex--;
+            const item = scrapData[currentIndex];
+            const numberToCopy = item.columns[0] || item.number || '';
+            
+            navigator.clipboard.writeText(numberToCopy).then(() => {
+                const tick = document.querySelectorAll('.btn-with-tick')[2].classList.add('active');
+                setTimeout(() => {
+                    document.querySelectorAll('.btn-with-tick')[2].classList.remove('active');
+                }, 2000);
+                
+                showCopyStatus(`Copied: ${numberToCopy} (${item.status})`, true);
+                
+                // Update counter
+                updateCounter();
+                
+                // Re-render table to show highlight
+                renderTable();
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                showCopyStatus('Failed to copy number. Please try again.', false);
+            });
         }
 
         function showCopyStatus(message, isSuccess) {
@@ -1226,7 +1380,7 @@
             const modal = document.getElementById('editOurIDsModal');
             const ourIDsArea = document.getElementById('ourIDsArea');
             
-            // Populate the textarea with current Our Agent IDs
+            // Populate the textarea with current Our Agent IDs (preserving line breaks)
             ourIDsArea.textContent = Array.from(ourAgentIDs).join('\n');
             
             modal.style.display = 'flex';
@@ -1259,7 +1413,7 @@
             // Update the Our Agent IDs set
             ourAgentIDs = new Set(newIDs);
             
-            // Save to localStorage
+            // Save to localStorage (preserving line breaks in the saved data)
             localStorage.setItem('ourAgentIDs', JSON.stringify(Array.from(ourAgentIDs)));
             
             closeEditOurIDsModal();
@@ -1268,6 +1422,34 @@
 
         // Handle paste events for text areas
         document.getElementById('callDataArea').addEventListener('paste', function(e) {
+            e.preventDefault();
+            const text = (e.clipboardData || window.clipboardData).getData('text');
+            const selection = window.getSelection();
+            const currentText = this.textContent;
+            
+            // Add separator if there's existing content
+            const separator = currentText && !currentText.endsWith('\n') ? '\n' : '';
+            
+            if (!selection.isCollapsed) {
+                // Replace selection
+                const range = selection.getRangeAt(0);
+                range.deleteContents();
+                range.insertNode(document.createTextNode(separator + text));
+            } else {
+                // Append at cursor
+                const cursorPos = selection.anchorOffset;
+                this.textContent = currentText.slice(0, cursorPos) + separator + text + currentText.slice(cursorPos);
+            }
+            
+            // Move cursor to end of pasted content
+            const range = document.createRange();
+            range.selectNodeContents(this);
+            range.collapse(false);
+            selection.removeAllRanges();
+            selection.addRange(range);
+        });
+        
+        document.getElementById('scrapDataArea').addEventListener('paste', function(e) {
             e.preventDefault();
             const text = (e.clipboardData || window.clipboardData).getData('text');
             const selection = window.getSelection();
